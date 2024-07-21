@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .course-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .course-card h2 {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+
+        .course-card p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .course-card form {
+            margin-top: 20px;
+        }
+
+        .course-card button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .course-card button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Available Courses</h1>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+    </nav>
+</header>
+
+<main>
+    <div class="course-container">
+        <div th:each="course : ${courses}" class="course-card">
+            <h2 th:text="${course.name}">Course Name</h2>
+            <p th:text="${course.description}">Course Description</p>
+            <p><strong>Instructor:</strong> <span th:text="${course.instructor}">Instructor Name</span></p>
+            <form th:action="@{/enrollments}" method="post">
+<!--                <input type="hidden" name="userId" th:value="${userId}" />-->
+<!--                <input type="hidden" name="courseId" th:value="${course.id}" />-->
+                <button type="submit">Enroll Now</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Online Learning Platform</p>
+</footer>
+</body>
+</html>
