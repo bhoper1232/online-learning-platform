@@ -1,21 +1,33 @@
+version: '3.8'
 services:
-  postgres:
-    container_name: postgres
-    image: postgres
+#  postgres:
+#    container_name: postgres
+#    image: postgres
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#      PGDATA: /data/postgres
+#    volumes:
+#      - postgres:/data/postgres
+#    ports:
+#      - "5332:5432"
+#    networks:
+#      - microservice_network
+#    restart: unless-stopped
+
+  mongodb-keycloak-new-version:
+    container_name: mongodb-keycloak-new-version
+    image: mongo:latest
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      PGDATA: /data/postgres
+      MONGODB_INIT_DB: keycloak
     volumes:
-      - postgres:/data/postgres
+      - mongodb-keycloak-provider:/data/db
     ports:
-      - "5332:5432"
-    networks:
-      - microservice_network
-    restart: unless-stopped
-  keycloak:
+      - "27017:27017"
+
+  keycloak-new-version:
     image: quay.io/keycloak/keycloak:latest
-    container_name: keycloak
+    container_name: keycloak-new-version
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
@@ -26,10 +38,11 @@ services:
       - --import-realm
     volumes:
       - ./config/keycloak:/opt/keycloak/data/import
+      - ./custom-keycloak-user-provider/target/custom-provider.jar:/opt/keycloak/providers/custom-provider.jar
 
 networks:
   microservice_network:
     driver: bridge
 
 volumes:
-  postgres:
+  mongodb-keycloak-provider:

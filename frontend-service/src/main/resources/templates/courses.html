@@ -106,8 +106,8 @@
             <p th:text="${course.description}">Course Description</p>
             <p><strong>Instructor:</strong> <span th:text="${course.instructor}">Instructor Name</span></p>
             <form th:action="@{/enrollments}" method="post">
-<!--                <input type="hidden" name="userId" th:value="${userId}" />-->
-<!--                <input type="hidden" name="courseId" th:value="${course.id}" />-->
+<!--                <input type="hidden" username="userId" th:value="${userId}" />-->
+<!--                <input type="hidden" username="courseId" th:value="${course.id}" />-->
                 <button type="submit">Enroll Now</button>
             </form>
         </div>
