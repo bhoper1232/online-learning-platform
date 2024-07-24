@@ -12,6 +12,8 @@
         <module>course-service</module>
         <module>enrollment-service</module>
         <module>frontend-service</module>
+        <module>user-service</module>
+        <module>custom-keycloak-user-provider</module>
     </modules>
 
     <properties>
