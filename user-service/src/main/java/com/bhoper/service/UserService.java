@@ -4,6 +4,7 @@ import com.bhoper.dto.UserCreateRequest;
 import com.bhoper.model.User;
 import com.bhoper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +19,7 @@ public class UserService {
                 .email(createRequest.email())
                 .firstName(createRequest.firstName())
                 .lastName(createRequest.lastName())
-                .password(createRequest.password())
+                .password(BCrypt.hashpw(createRequest.password(), BCrypt.gensalt()))
                 .roles(createRequest.roles())
                 .birthDate(createRequest.birtDate())
                 .build();
