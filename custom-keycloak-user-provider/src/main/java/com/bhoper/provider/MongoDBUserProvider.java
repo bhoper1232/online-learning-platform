@@ -107,6 +107,7 @@ public class MongoDBUserProvider implements UserStorageProvider, UserLookupProvi
             if (userDoc != null) {
                 UserCredentialModel cred = (UserCredentialModel) credentialInput;
                 String storedPassword = userDoc.getString("password");
+//                return storedPassword.equals(cred.getChallengeResponse());
                 return BCrypt.checkpw(cred.getChallengeResponse(), storedPassword);
             }
         } catch (Exception e) {
