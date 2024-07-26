@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-6/assets/css/login-6.css">
 </head>
 <body>
+<#--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+
+<#--<script>-->
+<#--    function onSignIn(googleUser) {-->
+<#--        var id_token = googleUser.getAuthResponse().id_token;-->
+
+<#--        window.location.href = 'http://localhost:8181/auth/realms/online-learning-platform/broker/google/endpoint?state=<state>&code=' + id_token;-->
+<#--    }-->
+<#--</script>-->
 <section class="bg-primary p-3 p-md-4 p-xl-5">
     <div class="container">
         <div class="row justify-content-center">
