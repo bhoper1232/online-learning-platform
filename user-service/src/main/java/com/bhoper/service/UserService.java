@@ -13,17 +13,15 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User createUser(UserCreateRequest createRequest) {
+    public void createUser(UserCreateRequest createRequest) {
         User user = User.builder()
                 .username(createRequest.username())
                 .email(createRequest.email())
                 .firstName(createRequest.firstName())
                 .lastName(createRequest.lastName())
                 .password(BCrypt.hashpw(createRequest.password(), BCrypt.gensalt()))
-                .roles(createRequest.roles())
-                .birthDate(createRequest.birtDate())
                 .build();
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
 }
