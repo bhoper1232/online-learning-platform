@@ -6,21 +6,27 @@ import com.bhoper.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
+    @GetMapping("/register")
+    public String getRegisterPage(Model model) {
+        model.addAttribute("payload", new User());
+        return "register";
+    }
 
     @PostMapping("/register")
-    public ResponseEntity<User> createUser(@RequestBody UserCreateRequest userCreateRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(this.userService.createUser(userCreateRequest));
+    public String createUser(@ModelAttribute("payload")
+                                               UserCreateRequest userCreateRequest) {
+        this.userService.createUser(userCreateRequest);
+        return "redirect:http://localhost:8082/home";
     }
 
 }

@@ -39,6 +39,7 @@ services:
     volumes:
       - ./config/keycloak:/opt/keycloak/data/import
       - ./custom-keycloak-user-provider/target/custom-provider.jar:/opt/keycloak/providers/custom-provider.jar
+      - ./keycloak/theme:/opt/keycloak/themes
 
 networks:
   microservice_network:
