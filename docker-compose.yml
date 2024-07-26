@@ -1,19 +1,19 @@
 version: '3.8'
 services:
-#  postgres:
-#    container_name: postgres
-#    image: postgres
-#    environment:
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: postgres
-#      PGDATA: /data/postgres
-#    volumes:
-#      - postgres:/data/postgres
-#    ports:
-#      - "5332:5432"
-#    networks:
-#      - microservice_network
-#    restart: unless-stopped
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - microservice_network
+    restart: unless-stopped
 
   mongodb-keycloak-new-version:
     container_name: mongodb-keycloak-new-version
@@ -47,3 +47,4 @@ networks:
 
 volumes:
   mongodb-keycloak-provider:
+  postgres:

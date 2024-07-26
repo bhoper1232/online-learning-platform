@@ -2,12 +2,12 @@ package com.bhoper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableFeignClients
-public class EnrollmentServiceApplication {
+@EnableEurekaServer
+public class DiscoveryServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(EnrollmentServiceApplication.class, args);
+        SpringApplication.run(DiscoveryServerApplication.class, args);
     }
 }

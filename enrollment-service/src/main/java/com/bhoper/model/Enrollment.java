@@ -20,6 +20,5 @@ public class Enrollment {
     private String username;
     private String courseId;
     private String status;
-    private Double progress;
 
 }

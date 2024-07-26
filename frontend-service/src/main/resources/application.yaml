@@ -12,10 +12,24 @@ spring:
           greetings-app-authorization-code:
             provider: keycloak
             client-id: platform-client
-            client-secret: mcQThFyjjp6Eu9S9SoW8uCvUR0vjKpu3
+            client-secret: zr9XV6I7gDE13aM6Et2NJ6XAXxAzdrpB
             scope:
               - openid
               - microprofile-jwt
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+
 server:
   port: 8082
+logging:
+  level:
+    com.netflix.discovery: debug
+    com.netflix.eureka: debug
+    feign: debug
+    com.netflix.loadbalancer: debug
