@@ -14,19 +14,6 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8181/realms/online-learning-platform
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8181/realms/online-learning-platform
-            user-name-attribute: preferred_username
-        registration:
-          greetings-app-authorization-code:
-            provider: keycloak
-            client-id: platform-client
-            client-secret: zr9XV6I7gDE13aM6Et2NJ6XAXxAzdrpB
-            scope:
-              - openid
-              - microprofile-jwt
 
 eureka:
   client:

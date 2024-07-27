@@ -15,6 +15,7 @@
         <module>user-service</module>
         <module>custom-keycloak-user-provider</module>
         <module>discovery-server</module>
+        <module>client-service</module>
     </modules>
 
     <properties>

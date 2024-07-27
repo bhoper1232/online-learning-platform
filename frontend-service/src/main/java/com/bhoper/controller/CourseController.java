@@ -1,9 +1,8 @@
 package com.bhoper.controller;
 
-import com.bhoper.client.CourseClient;
-import com.bhoper.client.EnrollmentClient;
-import com.bhoper.controller.payload.EnrollmentCreateRequest;
-
+import com.bhoper.client.course.CourseClient;
+import com.bhoper.client.enrollment.EnrollmentClient;
+import com.bhoper.client.enrollment.EnrollmentCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,9 +29,17 @@ public class CourseController {
 
     @PostMapping("/enrollments")
     public String enrollCourse(@RequestParam("courseId") String courseId, Principal principal) {
-        this.enrollmentClient.createEnrollment(new EnrollmentCreateRequest(principal.getName(),
-                courseId, "active"));
-        return "redirect:/home";
+        System.out.println(principal.getName());
+        System.out.println(courseId);
+
+        Boolean active = this.enrollmentClient.createEnrollment(new EnrollmentCreateRequest(
+                principal.getName(),
+                courseId,
+                "active"));
+
+        if (active) return "redirect:/home";
+
+        throw new RuntimeException();
     }
 
 }
