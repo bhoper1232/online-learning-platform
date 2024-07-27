@@ -1,6 +1,8 @@
 package com.bhoper.controller;
 
+import com.bhoper.client.course.Course;
 import com.bhoper.client.course.CourseClient;
+import com.bhoper.client.course.CourseCreateRequest;
 import com.bhoper.client.enrollment.EnrollmentClient;
 import com.bhoper.client.enrollment.EnrollmentCreateRequest;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +11,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -39,6 +42,7 @@ public class CourseController {
                 courseId,
                 "active"));
 
+        // todo: clcode
         if (active) return "redirect:/home";
 
         throw new RuntimeException();
@@ -52,5 +56,17 @@ public class CourseController {
         model.addAttribute("email", principal.getAttribute("email"));
 
         return "user-info";
+    }
+
+    @GetMapping("/course/create")
+    public String getCourseCreatePage(Model model) {
+        model.addAttribute("payload", new Course());
+        return "create-new-course";
+    }
+
+    @PostMapping("/course/create")
+    public String createCourse(@ModelAttribute("payload")CourseCreateRequest courseCreateRequest) {
+        this.courseClient.createCourse(courseCreateRequest);
+        return "redirect:/home";
     }
 }

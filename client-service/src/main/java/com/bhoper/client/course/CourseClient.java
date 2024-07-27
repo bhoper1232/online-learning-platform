@@ -3,6 +3,8 @@ package com.bhoper.client.course;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -14,5 +16,8 @@ public interface CourseClient {
 
     @GetMapping("/courses")
     List<Course> getAllCourses();
+
+    @PostMapping("/courses")
+    Course createCourse(CourseCreateRequest courseCreateRequest);
 
 }

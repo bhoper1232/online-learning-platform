@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+        }
+        #main-header {
+            background-color: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+        #main-header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 24px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .btn {
+            display: inline-block;
+            background: #77aaff;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #5599ff;
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>Create New Course</h1>
+        </div>
+    </header>
+    <div class="container">
+        <form data-th-action="@{/course/create}" method="post">
+            <div class="form-group">
+                <label for="course-name">Course Name</label>
+                <input type="text" id="course-name" name="name" placeholder="Enter course name" data-th-value="${payload?.name}" required>
+            </div>
+            <div class="form-group">
+                <label for="course-description">Course Description</label>
+                <textarea id="course-description" name="description" placeholder="Enter course description" data-th-value="${payload?.description}" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="course-instructor">Instructor Name</label>
+                <input type="text" id="course-instructor" name="instructor" placeholder="Enter instructor name" data-th-value="${payload?.instructor}" required>
+            </div>
+            <button type="submit" class="btn">Create Course</button>
+        </form>
+    </div>
+</body>
+</html>
