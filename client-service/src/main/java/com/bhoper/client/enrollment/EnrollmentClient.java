@@ -1,6 +1,5 @@
-package com.bhoper.client;
+package com.bhoper.client.enrollment;
 
-import com.bhoper.controller.payload.EnrollmentCreateRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 

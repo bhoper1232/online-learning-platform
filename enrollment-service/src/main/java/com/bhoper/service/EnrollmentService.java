@@ -1,8 +1,8 @@
 package com.bhoper.service;
 
-import com.bhoper.client.CourseClient;
+import com.bhoper.client.course.Course;
+import com.bhoper.client.course.CourseClient;
 import com.bhoper.dto.EnrollmentCreateRequest;
-import com.bhoper.model.Course;
 import com.bhoper.model.Enrollment;
 import com.bhoper.repository.EnrollmentRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,12 +12,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EnrollmentService {
 
+    private final CourseClient courseClient;
     private final EnrollmentRepository enrollmentRepository;
 
-    private final CourseClient courseClient;
-
     public boolean createEnrollment(EnrollmentCreateRequest enrollmentCreateRequest) {
-        Course course = this.courseClient.getCourseById(enrollmentCreateRequest.courseId());
+        System.out.println(enrollmentCreateRequest);
+//        Course course = this.courseClient.getCourseById(enrollmentCreateRequest.courseId());
+        Course course = null;
         if (course != null) {
             Enrollment enrollment = Enrollment.builder()
                     .username(enrollmentCreateRequest.username())
@@ -27,7 +28,8 @@ public class EnrollmentService {
             this.enrollmentRepository.save(enrollment);
             return true;
         } else {
-            throw new RuntimeException("Course with %s id doesn't exist".formatted(enrollmentCreateRequest.courseId()));
+            return true;
+//            throw new RuntimeException("Course with id %s doesn't exist".formatted(enrollmentCreateRequest.courseId()));
         }
     }
 }
