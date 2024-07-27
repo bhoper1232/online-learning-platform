@@ -4,6 +4,8 @@ import com.bhoper.client.course.CourseClient;
 import com.bhoper.client.enrollment.EnrollmentClient;
 import com.bhoper.client.enrollment.EnrollmentCreateRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,4 +44,13 @@ public class CourseController {
         throw new RuntimeException();
     }
 
+    @GetMapping("/user-info")
+    public String getUserInfoPage(Model model, @AuthenticationPrincipal OAuth2User principal) {
+        model.addAttribute("username", principal.getAttribute("preferred_username"));
+        model.addAttribute("firstName", principal.getAttribute("given_name"));
+        model.addAttribute("lastName", principal.getAttribute("family_name"));
+        model.addAttribute("email", principal.getAttribute("email"));
+
+        return "user-info";
+    }
 }

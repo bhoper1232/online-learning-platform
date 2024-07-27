@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .user-info {
+            list-style: none;
+            padding: 0;
+        }
+        .user-info li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .user-info li:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>User Information</h1>
+    <ul class="user-info">
+        <li><span class="label">Username:</span> <span class="value" th:text="${username}"></span></li>
+        <li><span class="label">First Name:</span> <span class="value" th:text="${firstName}"></span></li>
+        <li><span class="label">Last Name:</span> <span class="value" th:text="${lastName}"></span></li>
+        <li><span class="label">Email:</span> <span class="value" th:text="${email}"></span></li>
+    </ul>
+    <a th:href="@{/home}" class="button">Back to Home</a>
+</div>
+</body>
+</html>
