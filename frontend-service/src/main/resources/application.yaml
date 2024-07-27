@@ -12,7 +12,7 @@ spring:
           greetings-app-authorization-code:
             provider: keycloak
             client-id: platform-client
-            client-secret: 2HrPxNpwndbPpWPDwi4EZWXxryBRwaDI
+            client-secret: n24LrytMhhAaQvVialeQkmGnvC2dC47u
             scope:
               - openid
               - microprofile-jwt

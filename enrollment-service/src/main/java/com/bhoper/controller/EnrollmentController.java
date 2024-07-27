@@ -1,5 +1,6 @@
 package com.bhoper.controller;
 
+import com.bhoper.client.FeignRequestInterceptor;
 import com.bhoper.dto.EnrollmentCreateRequest;
 import com.bhoper.service.EnrollmentService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,10 @@ public class EnrollmentController {
     private final EnrollmentService enrollmentService;
 
     @PostMapping("/create")
-    public Boolean createEnrollment(EnrollmentCreateRequest enrollmentCreateRequest) {
+    public Boolean createEnrollment(@RequestBody EnrollmentCreateRequest enrollmentCreateRequest,
+                                    @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        System.out.println(token);
+        FeignRequestInterceptor.token = token;
         return this.enrollmentService.createEnrollment(enrollmentCreateRequest);
     }
 }
