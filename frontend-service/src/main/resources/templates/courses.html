@@ -86,15 +86,14 @@
             bottom: 0;
             width: 100%;
         }
-
     </style>
 </head>
 <body>
 <header>
     <h1>Available Courses</h1>
     <nav>
-        <a href="/dashboard">Home</a>
-        <a href="/profile">Profile</a>
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/user-info}">Profile</a>
         <a href="/logout">Logout</a>
     </nav>
 </header>
