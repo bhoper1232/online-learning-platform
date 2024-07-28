@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Courses</title>
+    <title>My Enrolled Courses</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
@@ -140,25 +140,6 @@
             margin: 10px 0;
         }
 
-        .course-card form {
-            margin-top: 20px;
-        }
-
-        .course-card button {
-            background-color: #666;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            padding: 12px 24px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .course-card button:hover {
-            background-color: #888;
-        }
-
         .details-button {
             background-color: #ff5722;
             margin-top: 10px;
@@ -210,34 +191,21 @@
 </head>
 <body>
 <header>
-    <h1>Available Courses</h1>
+    <h1>My Enrolled Courses</h1>
     <nav>
         <a th:href="@{/home}">Home</a>
         <a th:href="@{/user-info}">Profile</a>
-        <a th:href="@{/enrolled-courses}">My Enrolled Courses</a>
+        <a th:href="@{/user/enrolled-courses}">My Enrolled Courses</a>
         <a href="/logout">Logout</a>
     </nav>
 </header>
 
-<section class="welcome-section">
-    <h2 class="typing-effect">Welcome to Our Course Platform</h2>
-    <p>Discover a wide range of courses to enhance your skills and knowledge. Whether you're looking to advance your career or explore a new hobby, we have the perfect course for you. Join our community of learners and start your educational journey today!</p>
-    <a class="create-course-link" th:href="@{/course/create}">Create New Course</a>
-</section>
-
 <main>
-    <div th:if="${successMessage}" class="success-message">
-        <p th:text="${successMessage}"></p>
-    </div>
     <div class="course-container">
-        <div th:each="course : ${courses}" class="course-card">
+        <div th:each="course : ${enrolledCourses}" class="course-card">
             <h2 th:text="${course.name}">Course Name</h2>
             <p th:text="${course.description}">Course Description</p>
             <p><strong>Instructor:</strong> <span th:text="${course.instructor}">Instructor Name</span></p>
-            <form data-th-action="@{/enrollments}" method="post">
-                <input type="hidden" th:name="courseId" th:value="${course.id}" />
-                <button type="submit">Enroll Now</button>
-            </form>
             <a th:href="@{/course/details/{id}(id=${course.id})}" class="details-button">Learn More</a>
         </div>
     </div>
