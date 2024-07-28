@@ -8,6 +8,8 @@ import com.bhoper.repository.EnrollmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EnrollmentService {
@@ -29,5 +31,9 @@ public class EnrollmentService {
         } else {
             throw new RuntimeException("Course with id %s doesn't exist".formatted(enrollmentCreateRequest.courseId()));
         }
+    }
+
+    public List<Enrollment> findEnrollmentsByUsername(String username) {
+        return this.enrollmentRepository.findEnrollmentsByUsername(username);
     }
 }
