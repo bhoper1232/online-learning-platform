@@ -184,6 +184,16 @@
             font-size: 18px;
         }
 
+        .error-message {
+            background-color: #dc0101;
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -228,6 +238,9 @@
 <main>
     <div th:if="${successMessage}" class="success-message">
         <p th:text="${successMessage}"></p>
+    </div>
+    <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
     </div>
     <div class="course-container">
         <div th:each="course : ${courses}" class="course-card">

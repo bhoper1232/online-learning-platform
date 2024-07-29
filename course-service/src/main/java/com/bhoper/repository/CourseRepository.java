@@ -9,4 +9,6 @@ import java.util.List;
 public interface CourseRepository extends MongoRepository<Course, String> {
     @Query("{ 'name': { $regex: ?0, $options: 'i' } }")
     List<Course> findByNameContainingIgnoreCase(String word);
+
+
 }

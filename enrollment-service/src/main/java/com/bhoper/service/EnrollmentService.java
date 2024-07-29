@@ -20,7 +20,7 @@ public class EnrollmentService {
     public boolean createEnrollment(EnrollmentCreateRequest enrollmentCreateRequest) {
         System.out.println(enrollmentCreateRequest);
         Course course = this.courseClient.getCourseById(enrollmentCreateRequest.courseId());
-        if (course != null) {
+        if (course != null && !this.enrollmentRepository.existsEnrollmentByUsernameAndCourseId(enrollmentCreateRequest.username(), enrollmentCreateRequest.courseId())) {
             Enrollment enrollment = Enrollment.builder()
                     .username(enrollmentCreateRequest.username())
                     .status(enrollmentCreateRequest.status())
@@ -29,7 +29,7 @@ public class EnrollmentService {
             this.enrollmentRepository.save(enrollment);
             return true;
         } else {
-            throw new RuntimeException("Course with id %s doesn't exist".formatted(enrollmentCreateRequest.courseId()));
+            return false;
         }
     }
 

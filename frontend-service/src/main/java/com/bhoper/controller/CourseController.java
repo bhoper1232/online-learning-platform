@@ -44,12 +44,12 @@ public class CourseController {
                 courseId,
                 "active"));
 
-        redirectAttributes.addFlashAttribute("successMessage", "You have successfully enrolled in the course!");
-
-        // todo: clcode
-        if (active) return "redirect:/home";
-
-        throw new RuntimeException();
+        if (active) {
+            redirectAttributes.addFlashAttribute("successMessage", "You have successfully enrolled in the course!");
+        } else {
+            redirectAttributes.addFlashAttribute("errorMessage", "You have already enrolled in the course!");
+        }
+        return "redirect:/home";
     }
 
     @GetMapping("/user-info")
