@@ -13,7 +13,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8181/realms/online-learning-platform
+          issuer-uri: http://localhost:8080/realms/online-learning-platform
 
 eureka:
   client:
@@ -23,4 +23,4 @@ eureka:
     register-with-eureka: true
 
 server:
-  port: 8081
+  port: 8082

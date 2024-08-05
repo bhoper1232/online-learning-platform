@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      uri: mongodb://mongodb-keycloak-new-version:27017/keycloak
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+server:
+  port: 8084

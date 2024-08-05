@@ -69,7 +69,7 @@ public class CourseController {
     }
 
     @PostMapping("/course/create")
-    public String createCourse(@ModelAttribute("payload")CourseCreateRequest courseCreateRequest) {
+    public String createCourse(@ModelAttribute("payload") CourseCreateRequest courseCreateRequest) {
         this.courseClient.createCourse(courseCreateRequest);
         return "redirect:/home";
     }
