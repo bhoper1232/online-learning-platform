@@ -1,12 +1,10 @@
 spring:
-  application:
-    name: frontend-service
   security:
     oauth2:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8080/realms/online-learning-platform
+            issuer-uri: http://nginx/realms/online-learning-platform
             user-name-attribute: preferred_username
         registration:
           greetings-app-authorization-code:
@@ -21,16 +19,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-    fetch-registry: true
-    register-with-eureka: true
-
+      defaultZone: http://discovery-server:8761/eureka/
 
 server:
   port: 8083
-logging:
-  level:
-    com.netflix.discovery: debug
-    com.netflix.eureka: debug
-    feign: debug
-    com.netflix.loadbalancer: debug

@@ -688,9 +688,13 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
+      "secret": "KDIF7w8LKZCRuaEZPvqrrsKzVyXzNyud",
       "redirectUris": [
-        "http://localhost:8082/*"
+        "http://nginx/*",
+        "http://nginx/login/oauth2/code/*",
+        "http://nginx/realms/online-learning-platform/protocol/openid-connect/certs",
+        "http://nginx/realms/online-learning-platform",
+        "http://nginx/login/oauth2/code/greetings-app-authorization-code"
       ],
       "webOrigins": [],
       "notBefore": 0,

@@ -1,0 +1,19 @@
+spring:
+
+  data:
+    mongodb:
+      uri: mongodb://mongodb-keycloak-new-version:27017/course-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://nginx/realms/online-learning-platform/protocol/openid-connect/certs
+          issuer-uri: http://nginx/realms/online-learning-platform
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka/
+
+server:
+  port: 8081
