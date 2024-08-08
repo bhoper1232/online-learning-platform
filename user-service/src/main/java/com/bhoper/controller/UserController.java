@@ -24,7 +24,7 @@ public class UserController {
     public String createUser(@ModelAttribute("payload")
                                                UserCreateRequest userCreateRequest) {
         this.userService.createUser(userCreateRequest);
-        return "redirect:http://localhost:8082/home";
+        return "redirect:http://nginx/home";
     }
 
 }
