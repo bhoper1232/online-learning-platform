@@ -6,8 +6,8 @@ This project is an Online Learning Platform designed to offer users a seamless e
 - **User Registration & Authentication**: Users can register and authenticate via Keycloak. A custom login page is implemented for a streamlined user experience.
 - **Course Display & Enrollment**: Users can view available courses and enroll in them. Enrollments are tracked, and users can view their registered courses.
 - **Microservice Architecture**:
-- - **course-service**: Handles course-related operations such as listing available courses.
-- - **enrollment-service**: Manages user enrollments and tracks user-course relations.
+  - **course-service**: Handles course-related operations such as listing available courses.
+  - **enrollment-service**: Manages user enrollments and tracks user-course relations.
 Service Communication: Implemented via OpenFeign to facilitate communication between services.
 Keycloak Integration:
 Custom Keycloak provider for user management with an external MongoDB database.
