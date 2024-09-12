@@ -1,8 +1,8 @@
-# Online Learning Platform
+# 📚 Online Learning Platform
 
 This project is an Online Learning Platform designed to offer users a seamless experience for course browsing, registration, and enrollment. It includes features like course display, user authentication, and service integration to manage courses and enrollments efficiently. The system architecture is built using microservices with communication between services handled by OpenFeign. User authentication and authorization are managed using Keycloak, and a custom Keycloak provider integrates an external MongoDB database for user data management.
 
-## Features
+## ✨ Features
 - **User Registration & Authentication**: Users can register and authenticate via Keycloak. A custom login page is implemented for a streamlined user experience.
 - **Course Display & Enrollment**: Users can view available courses and enroll in them. Enrollments are tracked, and users can view their registered courses.
 - **Microservice Architecture**:
@@ -16,7 +16,7 @@ This project is an Online Learning Platform designed to offer users a seamless e
 - **Nginx as Reverse Proxy**: Configured Nginx as a reverse proxy for better load balancing and security.
 - **Containerized with Docker**: The entire platform is containerized using Docker, ensuring consistent environments and simplified deployment.
 
-## Technologies Used
+## 🛠️ Technologies Used
 - **Java** (Backend services)
 - **Spring Boot** (Microservices)
 - **Thymeleaf** (Frontend for course display and user enrollment)
@@ -27,7 +27,7 @@ This project is an Online Learning Platform designed to offer users a seamless e
 - **Docker** (Containerization)
 - **RESTful APIs** (For communication between frontend and backend services)
 
-## Setup and Installation
+## 🚀 Setup and Installation
 1. **Clone the repository**:
 ```
 git clone https://github.com/your-username/online-learning-platform.git
@@ -41,10 +41,10 @@ cd online-learning-platform
 docker-compose up
 ```
 4. **Access the platform**:
-- The frontend can be accessed at ```http://localhost:8080```.
-- Keycloak's admin console will be available at ```http://localhost:8081```.
+- The frontend can be accessed at ```http://localhost:8083```.
+- Keycloak's admin console will be available at ```http://localhost:8080```.
 
-## How It Works
+## 🛠️ How It Works
 1. **User Registration & Login**: Users register and log in through Keycloak.
 2. **Course Browsing**: The frontend (powered by Thymeleaf) displays available courses to the user.
 3. **User Enrollment**: Users can enroll in courses, which triggers the enrollment-service to record the registration.
